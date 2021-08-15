@@ -13,14 +13,14 @@ contract SharkNFT is ERC721URIStorage, Ownable {
     }
 
     ISharkNFT[] public sharks;
-    uint256 public totalSupply;
+    uint256 public totalSharks;
 
     mapping(address => bool) private governance;
 
     event Mint(uint256 id, string name, string uri);
     
     constructor(string memory _name, string memory _symbol) ERC721(_name, _symbol) {
-        totalSupply = 0;
+        totalSharks = 0;
         governance[msg.sender] = true;
     }
 
@@ -40,12 +40,12 @@ contract SharkNFT is ERC721URIStorage, Ownable {
         require(governance[msg.sender], "No Permission");
 
         ISharkNFT memory nft;
-        nft.id = totalSupply;
+        nft.id = totalSharks;
         nft.name = _name;
         nft.uri = _uri;
 
         sharks.push(nft);
-        totalSupply++;
+        totalSharks++;
 
         _mint(msg.sender, nft.id);
         _setTokenURI(nft.id, _uri);
