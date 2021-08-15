@@ -1,7 +1,10 @@
 //SPDX-License-Identifier: Unlicense
 pragma solidity ^0.8.0;
 
-contract AuctionSea {
+import "./ISharkNFT.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+
+contract AuctionSea is Ownable {
     struct Auction {
         uint256 highestBid;
         uint256 closingTime;
@@ -12,6 +15,9 @@ contract AuctionSea {
 
     // NFT id => Auction data
     mapping (uint256 => Auction) public auctions;
+
+    // SharkNFT contract interface
+    ISharkNFT private sNft_;
 
     /**
      * New Auction Opened Event
@@ -37,6 +43,12 @@ contract AuctionSea {
      * @param bidder Bidder address
      */
     event BidPlaced (uint256 nftId, uint256 bidPrice, address bidder);
+
+    function initialize(address _sNft) external onlyOwner {
+        require(_sNft != address(0), "Invalid address");
+
+        sNft_ = ISharkNFT(_sNft);
+    }
 
     /**
      * Open Auction
