@@ -1,5 +1,8 @@
 # 🦈 NFT Auction Contracts 🦈
 
+![shark](https://user-images.githubusercontent.com/51104905/129466162-1d730cbc-38dd-4232-83cc-0b889af097eb.gif)
+
+
 ### 📖📚 Brief description of project 📖📚
 - Solidity v0.8
 - Hardhat
