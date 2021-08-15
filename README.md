@@ -1,5 +1,9 @@
 # 🦈 NFT Auction Contracts 🦈
 
+### Brief description of project
+- Solidity v0.8
+- Hardhat
+
 ### 1. How to deploy? 🛫 🛫 🛫 
 ```
 npx hardhat compile
