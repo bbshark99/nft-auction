@@ -13,13 +13,19 @@ async function main() {
   // manually to make sure everything is compiled
   // await hre.run('compile');
 
-  // We get the contract to deploy
+  // Deploy SharkNFT contract
   const SharkNFT = await hre.ethers.getContractFactory("SharkNFT");
   const sharkNFT = await SharkNFT.deploy("SharkNFT", "SNFT");
 
   await sharkNFT.deployed();
+  console.log("SharkNFT deployed to: ", sharkNFT.address);
 
-  console.log("SharkNFT deployed to:", sharkNFT.address);
+  // Deploy AuctionSea contract
+  const AuctionSea = await hre.ethers.getContractFactory("AuctionSea");
+  const auctionSea = await AuctionSea.deploy();
+
+  await auctionSea.deployed();
+  console.log("AuctionSea deployed to: ", auctionSea.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
