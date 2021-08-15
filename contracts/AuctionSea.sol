@@ -44,6 +44,10 @@ contract AuctionSea is Ownable {
      */
     event BidPlaced (uint256 nftId, uint256 bidPrice, address bidder);
 
+    /**
+     * Initialize states
+     * @param _sNft SharkNFT contract address
+     */
     function initialize(address _sNft) external onlyOwner {
         require(_sNft != address(0), "Invalid address");
 
@@ -59,10 +63,10 @@ contract AuctionSea is Ownable {
     function openAuction(uint256 _nftId, uint256 _sBid, uint256 _duration) external {
         require(auctions[_nftId].isActive == false, "Ongoing auction detected");
         require(_duration > 0 && _sBid > 0, "Invalid input");
-
-        // Need to check nft owner
+        require(sNft_.ownerOf(_nftId) == msg.sender, "Not NFT owner");
 
         // NFT Transfer to contract
+        sNft_.transfer(_nftId, address(this));
 
         // Opening new auction
         auctions[_nftId].highestBid = _sBid;
@@ -106,6 +110,7 @@ contract AuctionSea is Ownable {
         }
 
         // Transfer NFT to Highest Bidder
+        sNft_.transfer(_nftId, auctions[_nftId].highestBidder);
 
         // Close Auction
         auctions[_nftId].isActive = false;

@@ -11,5 +11,7 @@ interface ISharkNFT {
 
     function totalSharks() external view returns (uint256);
 
+    function ownerOf(uint256) external view returns (address);
+
     function transfer(uint256, address) external;
 }
