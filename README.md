@@ -1,4 +1,4 @@
-# 🦈 NFT Auction Contracts 🦈
+<h1 align="center"> 🦈 NFT Auction Contracts 🦈 </h1>
 
 ![shark](https://user-images.githubusercontent.com/51104905/129466162-1d730cbc-38dd-4232-83cc-0b889af097eb.gif)
 
