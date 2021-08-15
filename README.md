@@ -3,6 +3,17 @@
 ### 📖📚 Brief description of project 📖📚
 - Solidity v0.8
 - Hardhat
+- Environmental variables
+    ```
+    # https://infura.io
+    INFURA_PROJECT_ID=
+
+    # Wallet private key
+    MNEMONIC="test test test ..."
+
+    # https://etherscan.io
+    ETHERSCAN_API_KEY=
+    ```
 
 <br />
 
