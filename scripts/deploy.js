@@ -28,7 +28,7 @@ async function main() {
   console.log("AuctionSea deployed to: ", auctionSea.address);
 
   await auctionSea.initialize(sharkNFT.address);
-  console.log('AuctionSea states have been initalized successfully');
+  console.log('AuctionSea states have been initialized successfully');
 }
 
 // We recommend this pattern to be able to use async/await everywhere
