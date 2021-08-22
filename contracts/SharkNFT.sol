@@ -63,9 +63,9 @@ contract SharkNFT is ERC721URIStorage, Ownable {
 
     function transfer(uint256 _nftId, address _target) external {
         require(_exists(_nftId), "Non existed NFT");
-        require(ownerOf(_nftId) == msg.sender, "Not NFT owner");
+        require(ownerOf(_nftId) == msg.sender || getApproved(_nftId) == msg.sender, "Not NFT owner");
         require(_target != address(0), "Invalid address");
 
-        _transfer(msg.sender, _target, _nftId);
+        _transfer(ownerOf(_nftId), _target, _nftId);
     }
 }
