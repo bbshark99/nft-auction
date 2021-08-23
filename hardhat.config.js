@@ -14,6 +14,7 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 
 console.log('DEBUG-ENV', {
   ETHERSCAN_API_KEY: process.env.ETHERSCAN_API_KEY,
+  POLYGONSCAN_API_KEY: process.env.POLYGONSCAN_API_KEY,
   INFURA_PROJECT_ID: process.env.INFURA_PROJECT_ID,
 });
 
@@ -51,6 +52,7 @@ module.exports = {
       accounts,
       chainId: 1,
       gasPrice: 120 * 1000000000,
+      tags: ["live"],
     },
     rinkeby: {
       url: `https://rinkeby.infura.io/v3/${process.env.INFURA_PROJECT_ID}`,
@@ -58,9 +60,21 @@ module.exports = {
       chainId: 4,
       live: true,
       saveDeployments: true,
-      tags: ["staging"],
       gasPrice: 5000000000,
       gasMultiplier: 2,
+      tags: ["staging"],
+    },
+    matic: {
+      url: `https://rpc-mainnet.matic.network`,
+      accounts,
+      chainId: 137,
+      tags: ["live"],
+    },
+    mumbai: {
+      url: `https://rpc-mumbai.matic.today`,
+      accounts,
+      chainId: 80001,
+      tags: ["staging"],
     },
   }
 };
