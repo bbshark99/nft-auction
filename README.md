@@ -49,8 +49,8 @@ npx hardhat verify --network rinkeby 0x44Afe45a323168d8fb89188c81e2f9f0301a10f4
 <br />
 
 ### 3. Deployed contracts 🤑 🤑 🤑 
-- SharkNFT contract: https://rinkeby.etherscan.io/address/0xeFa1000fe5809B829f1024e72364fAA0B0C4A720#code
-- AuctionSea contract: https://rinkeby.etherscan.io/address/0x44Afe45a323168d8fb89188c81e2f9f0301a10f4#code
+- SharkNFT contract: https://rinkeby.etherscan.io/address/0xc3F64a2AFadaDffBd0d8dEFcFE1E4F9A7215deb9
+- AuctionSea contract: https://rinkeby.etherscan.io/address/0xaD0Ef2e866b0e05CEd64D431F6C5b183d79646dA
 
 
 <br />
